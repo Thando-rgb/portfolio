@@ -1,3 +1,40 @@
+// Navbar hide on scroll down, show on scroll up
+const navbar = document.getElementById('navbar')
+let lastScrollY = 0
+let ticking = false
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const currentScrollY = window.scrollY
+            const scrolled = currentScrollY > 50
+
+            navbar.classList.toggle('scrolled', scrolled)
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.classList.add('nav-hidden')
+            } else {
+                navbar.classList.remove('nav-hidden')
+            }
+
+            lastScrollY = currentScrollY
+            ticking = false
+        })
+        ticking = true
+    }
+})
+
+// Back to top button
+const backToTop = document.getElementById('back-to-top')
+
+window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 400)
+})
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+})
+
 // Mobile menu toggle (checkbox-based)
 const hamburgerInput = document.getElementById('hamburger-input')
 const mobileMenu = document.getElementById('mobile-menu')
@@ -12,12 +49,6 @@ mobileMenu.querySelectorAll('a').forEach(link => {
         hamburgerInput.checked = false
         mobileMenu.classList.add('hidden')
     })
-})
-
-// Navbar background on scroll
-const navbar = document.getElementById('navbar')
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50)
 })
 
 // Fade-in on scroll (IntersectionObserver)

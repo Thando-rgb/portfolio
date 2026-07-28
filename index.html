@@ -5,31 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thando Chipango — IT Student &amp; Developer</title>
     <meta name="description" content="Portfolio of Thando Chipango — IT student, cybersecurity enthusiast, and software developer based in Lilongwe, Malawi.">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Thando Chipango — IT Student &amp; Developer">
+    <meta property="og:description" content="Portfolio of Thando Chipango — IT student, cybersecurity enthusiast, and software developer based in Lilongwe, Malawi.">
+    <meta property="og:url" content="https://thando-portfolio-steel.vercel.app/">
+    <meta property="og:image" content="https://thando-portfolio-steel.vercel.app/favicon.svg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Thando Chipango — IT Student &amp; Developer">
+    <meta name="twitter:description" content="Portfolio of Thando Chipango — IT student, cybersecurity enthusiast, and software developer based in Lilongwe, Malawi.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Thando Chipango",
+      "url": "https://thando-portfolio-steel.vercel.app/",
+      "jobTitle": "IT Student & Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lilongwe",
+        "addressCountry": "Malawi"
+      },
+      "sameAs": [
+        "https://github.com/Thando-rgb",
+        "https://www.linkedin.com/in/thando-chipango"
+      ],
+      "email": "thandochipango316@gmail.com"
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                    },
-                    colors: {
-                        bg: '#0a0a0a',
-                        surface: '#141414',
-                        'surface-hover': '#1a1a1a',
-                        border: '#262626',
-                        txt: '#e5e5e5',
-                        'txt-muted': '#a3a3a3',
-                        accent: '#a8a29e',
-                    },
-                },
-            },
-        }
-    </script>
     <link rel="stylesheet" href="styles.css">
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 
 <body class="bg-bg text-txt font-sans antialiased">
@@ -429,6 +451,11 @@
             <p class="text-txt-muted/50 text-xs">&copy; 2026 Thando Chipango · <a href="privacy.html" class="hover:text-accent transition-colors duration-200">Privacy</a></p>
         </div>
     </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" aria-label="Back to top">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
