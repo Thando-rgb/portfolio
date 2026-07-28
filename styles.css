@@ -1,0 +1,132 @@
+/* Custom animations and overrides */
+
+/* Fade in on scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navbar background on scroll */
+#navbar.scrolled {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(38, 38, 38, 0.5);
+}
+
+/* Hamburger menu */
+.hamburger label {
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#hamburger-input {
+    display: none;
+}
+
+.hamburger .line {
+    height: 3px;
+    margin: 3px 0;
+    border-radius: 4px;
+    background-color: #a3a3a3;
+    transition: all 0.4s ease-in-out;
+}
+
+.hamburger .line1 { width: 40%; }
+.hamburger .line2 { width: 80%; }
+.hamburger .line3 { width: 60%; }
+
+.hamburger:hover .line {
+    background-color: #a8a29e;
+}
+
+#hamburger-input:checked ~ .line1 {
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(5px, 0px);
+}
+
+#hamburger-input:checked ~ .line2 {
+    transform-origin: top;
+    transform: rotatez(-45deg);
+}
+
+#hamburger-input:checked ~ .line3 {
+    width: 40%;
+    transform-origin: bottom;
+    transform: translate(14px, -7px) rotatez(45deg);
+}
+
+/* Live preview tooltip */
+.preview-trigger {
+    position: relative;
+}
+
+.preview-tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 192px;
+    height: 108px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.preview-tooltip.active {
+    opacity: 1;
+}
+
+.preview-tooltip iframe {
+    width: 1920px;
+    height: 1080px;
+    transform: scale(0.1);
+    transform-origin: top left;
+    border: none;
+    pointer-events: none;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Selection */
+::selection {
+    background: rgba(168, 162, 158, 0.3);
+    color: #e5e5e5;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #a8a29e;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
