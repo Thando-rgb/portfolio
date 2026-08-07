@@ -224,3 +224,18 @@ button:focus-visible {
   direction: rtl;
   unicode-bidi: bidi-override;
 }
+
+/* Project card images */
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #262626;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.group:hover .project-image {
+  border-color: rgba(196, 181, 168, 0.3);
+}

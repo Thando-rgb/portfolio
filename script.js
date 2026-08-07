@@ -3,37 +3,38 @@ const navbar = document.getElementById('navbar')
 let lastScrollY = 0
 let ticking = false
 
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            const currentScrollY = window.scrollY
-            const scrolled = currentScrollY > 50
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScrollY = window.scrollY
 
-            navbar.classList.toggle('scrolled', scrolled)
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    navbar.classList.add('nav-hidden')
+                } else {
+                    navbar.classList.remove('nav-hidden')
+                }
 
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                navbar.classList.add('nav-hidden')
-            } else {
-                navbar.classList.remove('nav-hidden')
-            }
-
-            lastScrollY = currentScrollY
-            ticking = false
-        })
-        ticking = true
-    }
-})
+                lastScrollY = currentScrollY
+                ticking = false
+            })
+            ticking = true
+        }
+    })
+}
 
 // Back to top button
 const backToTop = document.getElementById('back-to-top')
 
-window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400)
-})
+if (backToTop) {
+    window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('visible', window.scrollY > 400)
+    })
 
-backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-})
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+}
 
 // Stop bounce arrow after first scroll or 3 seconds
 const scrollArrow = document.querySelector('#hero .animate-bounce')
@@ -50,17 +51,21 @@ if (scrollArrow) {
 const hamburgerInput = document.getElementById('hamburger-input')
 const mobileMenu = document.getElementById('mobile-menu')
 
-hamburgerInput.addEventListener('change', () => {
-    mobileMenu.classList.toggle('open', hamburgerInput.checked)
-})
-
-// Close mobile menu on link click
-mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburgerInput.checked = false
-        mobileMenu.classList.remove('open')
+if (hamburgerInput && mobileMenu) {
+    hamburgerInput.addEventListener('change', () => {
+        mobileMenu.classList.toggle('open', hamburgerInput.checked)
+        hamburgerInput.setAttribute('aria-expanded', hamburgerInput.checked)
     })
-})
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburgerInput.checked = false
+            mobileMenu.classList.remove('open')
+            hamburgerInput.setAttribute('aria-expanded', 'false')
+        })
+    })
+}
 
 // Fade-in on scroll (IntersectionObserver)
 const observer = new IntersectionObserver((entries) => {
@@ -78,26 +83,31 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el))
 const sections = document.querySelectorAll('section[id], footer[id]')
 const navLinks = document.querySelectorAll('#navbar a[href^="#"]')
 
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id')
-            navLinks.forEach(link => {
-                link.classList.toggle('text-accent', link.getAttribute('href') === `#${id}`)
-            })
-        }
-    })
-}, { threshold: 0.3 })
+if (sections.length && navLinks.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id')
+                navLinks.forEach(link => {
+                    link.classList.toggle('text-accent', link.getAttribute('href') === `#${id}`)
+                })
+            }
+        })
+    }, { threshold: 0.3 })
 
-sections.forEach(section => sectionObserver.observe(section))
+    sections.forEach(section => sectionObserver.observe(section))
+}
 
 // Live preview tooltip on hover
 const MOBILE_BREAKPOINT = 768
 const HOVER_DELAY = 500
 const HIDE_DELAY = 100
 
-if (window.innerWidth >= MOBILE_BREAKPOINT) {
+function initPreviewTooltips() {
     document.querySelectorAll('[data-preview]').forEach(trigger => {
+        if (trigger.dataset.previewInit) return
+        trigger.dataset.previewInit = 'true'
+
         let tooltip = null
         let showTimeout = null
         let hideTimeout = null
@@ -141,3 +151,18 @@ if (window.innerWidth >= MOBILE_BREAKPOINT) {
         })
     })
 }
+
+// Init on load and re-check on resize
+if (window.innerWidth >= MOBILE_BREAKPOINT) {
+    initPreviewTooltips()
+}
+
+let resizeTimeout
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout)
+    resizeTimeout = setTimeout(() => {
+        if (window.innerWidth >= MOBILE_BREAKPOINT) {
+            initPreviewTooltips()
+        }
+    }, 250)
+})
