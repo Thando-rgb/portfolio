@@ -124,19 +124,32 @@ function initPreviewTooltips() {
                 tooltip = document.createElement('div')
                 tooltip.className = 'preview-tooltip'
 
-                const iframe = document.createElement('iframe')
-                iframe.setAttribute('sandbox', 'allow-same-origin')
-                iframe.setAttribute('loading', 'lazy')
-                iframe.setAttribute('title', 'Preview')
-                tooltip.appendChild(iframe)
-
-                trigger.appendChild(tooltip)
-
-                // Load URL after DOM append for smoother appearance
-                requestAnimationFrame(() => {
-                    iframe.src = trigger.getAttribute('data-preview')
-                    tooltip.classList.add('active')
-                })
+                const imageUrl = trigger.getAttribute('data-preview-image')
+                if (imageUrl) {
+                    const img = document.createElement('img')
+                    img.setAttribute('alt', 'Live site preview')
+                    img.setAttribute('loading', 'lazy')
+                    img.style.width = '100%'
+                    img.style.height = '100%'
+                    img.style.objectFit = 'cover'
+                    tooltip.appendChild(img)
+                    trigger.appendChild(tooltip)
+                    requestAnimationFrame(() => {
+                        img.src = imageUrl
+                        tooltip.classList.add('active')
+                    })
+                } else {
+                    const iframe = document.createElement('iframe')
+                    iframe.setAttribute('sandbox', 'allow-same-origin')
+                    iframe.setAttribute('loading', 'lazy')
+                    iframe.setAttribute('title', 'Preview')
+                    tooltip.appendChild(iframe)
+                    trigger.appendChild(tooltip)
+                    requestAnimationFrame(() => {
+                        iframe.src = trigger.getAttribute('data-preview')
+                        tooltip.classList.add('active')
+                    })
+                }
             }, HOVER_DELAY)
         })
 
