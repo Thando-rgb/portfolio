@@ -35,19 +35,30 @@ backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 })
 
+// Stop bounce arrow after first scroll or 3 seconds
+const scrollArrow = document.querySelector('#hero .animate-bounce')
+if (scrollArrow) {
+    const stopBounce = () => {
+        scrollArrow.classList.remove('animate-bounce')
+        window.removeEventListener('scroll', stopBounce)
+    }
+    window.addEventListener('scroll', stopBounce)
+    setTimeout(stopBounce, 3000)
+}
+
 // Mobile menu toggle (checkbox-based)
 const hamburgerInput = document.getElementById('hamburger-input')
 const mobileMenu = document.getElementById('mobile-menu')
 
 hamburgerInput.addEventListener('change', () => {
-    mobileMenu.classList.toggle('hidden', !hamburgerInput.checked)
+    mobileMenu.classList.toggle('open', hamburgerInput.checked)
 })
 
 // Close mobile menu on link click
 mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         hamburgerInput.checked = false
-        mobileMenu.classList.add('hidden')
+        mobileMenu.classList.remove('open')
     })
 })
 
@@ -62,6 +73,23 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 })
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el))
+
+// Active section indicator in nav
+const sections = document.querySelectorAll('section[id], footer[id]')
+const navLinks = document.querySelectorAll('#navbar a[href^="#"]')
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id')
+            navLinks.forEach(link => {
+                link.classList.toggle('text-accent', link.getAttribute('href') === `#${id}`)
+            })
+        }
+    })
+}, { threshold: 0.3 })
+
+sections.forEach(section => sectionObserver.observe(section))
 
 // Live preview tooltip on hover
 const MOBILE_BREAKPOINT = 768

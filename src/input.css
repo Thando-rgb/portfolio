@@ -9,7 +9,7 @@
   --color-border: #262626;
   --color-txt: #e5e5e5;
   --color-txt-muted: #a3a3a3;
-  --color-accent: #a8a29e;
+  --color-accent: #c4b5a8;
 }
 
 /* Fade in on scroll */
@@ -182,4 +182,48 @@ button:focus-visible {
   outline: 2px solid #a8a29e;
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+/* Mobile menu transition */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+#mobile-menu.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus styles for skip link */
+.focus\:not-sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Email obfuscation — reverses text for bots, aria-label for screen readers */
+.obfuscate {
+  direction: rtl;
+  unicode-bidi: bidi-override;
 }
