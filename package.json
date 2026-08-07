@@ -4,7 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "build": "npx @tailwindcss/cli -i src/input.css -o styles.css --minify",
+    "build": "echo 'Static site — no build needed'",
     "dev": "npx @tailwindcss/cli -i src/input.css -o styles.css --watch"
   },
   "repository": {
