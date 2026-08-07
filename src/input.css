@@ -26,14 +26,11 @@
 
 /* Navbar */
 #navbar {
-  transition: transform 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
-}
-
-#navbar.scrolled {
-  background: rgba(10, 10, 10, 0.85);
+  background: rgba(10, 10, 10, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(38, 38, 38, 0.5);
+  transition: transform 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
 }
 
 #navbar.nav-hidden {
