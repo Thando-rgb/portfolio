@@ -2,14 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thando-portfolio-steel.vercel.app/</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-18</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://thando-portfolio-steel.vercel.app/privacy.html</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-08-18</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>

@@ -47,23 +47,54 @@ if (scrollArrow) {
     setTimeout(stopBounce, 3000)
 }
 
-// Mobile menu toggle (checkbox-based)
-const hamburgerInput = document.getElementById('hamburger-input')
+// Mobile menu toggle (button-based)
+const hamburgerToggle = document.getElementById('hamburger-toggle')
 const mobileMenu = document.getElementById('mobile-menu')
 
-if (hamburgerInput && mobileMenu) {
-    hamburgerInput.addEventListener('change', () => {
-        mobileMenu.classList.toggle('open', hamburgerInput.checked)
-        hamburgerInput.setAttribute('aria-expanded', hamburgerInput.checked)
+if (hamburgerToggle && mobileMenu) {
+    const hamburger = hamburgerToggle.closest('.hamburger')
+
+    const closeMenu = (returnFocus) => {
+        hamburgerToggle.setAttribute('aria-expanded', 'false')
+        mobileMenu.classList.remove('open')
+        if (hamburger) hamburger.classList.remove('open')
+        if (returnFocus) hamburgerToggle.focus()
+    }
+
+    hamburgerToggle.addEventListener('click', () => {
+        const isOpen = hamburgerToggle.getAttribute('aria-expanded') === 'true'
+        hamburgerToggle.setAttribute('aria-expanded', String(!isOpen))
+        mobileMenu.classList.toggle('open', !isOpen)
+        if (hamburger) hamburger.classList.toggle('open', !isOpen)
+    })
+
+    hamburgerToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu(true)
     })
 
     // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburgerInput.checked = false
-            mobileMenu.classList.remove('open')
-            hamburgerInput.setAttribute('aria-expanded', 'false')
-        })
+        link.addEventListener('click', () => closeMenu(true))
+    })
+}
+
+// Copy email to clipboard
+const copyEmailButton = document.getElementById('copy-email')
+const copyEmailLabel = document.getElementById('copy-email-label')
+
+if (copyEmailButton && copyEmailLabel) {
+    const originalLabel = copyEmailLabel.textContent
+
+    copyEmailButton.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText('thandochipango316@gmail.com')
+            copyEmailLabel.textContent = 'Copied!'
+            setTimeout(() => {
+                copyEmailLabel.textContent = originalLabel
+            }, 2000)
+        } catch (error) {
+            console.error('[CLIPBOARD] copy failed:', error)
+        }
     })
 }
 
@@ -84,13 +115,22 @@ const sections = document.querySelectorAll('section[id], footer[id]')
 const navLinks = document.querySelectorAll('#navbar a[href^="#"]')
 
 if (sections.length && navLinks.length) {
+    const setActive = (id) => {
+        navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${id}`
+            link.classList.toggle('text-accent', isActive)
+            if (isActive) {
+                link.setAttribute('aria-current', 'true')
+            } else {
+                link.removeAttribute('aria-current')
+            }
+        })
+    }
+
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id')
-                navLinks.forEach(link => {
-                    link.classList.toggle('text-accent', link.getAttribute('href') === `#${id}`)
-                })
+                setActive(entry.target.getAttribute('id'))
             }
         })
     }, { threshold: 0.3 })

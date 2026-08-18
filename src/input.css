@@ -38,15 +38,15 @@
 }
 
 /* Hamburger menu — sliding effect */
-.hamburger label {
+.hamburger button {
   width: 36px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-}
-
-#hamburger-input {
-  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  align-items: flex-start;
 }
 
 .hamburger .line {
@@ -66,17 +66,17 @@
   background-color: #a8a29e;
 }
 
-#hamburger-input:checked ~ .line1 {
+.hamburger.open .line1 {
   width: 80%;
   transform: translateY(6px);
 }
 
-#hamburger-input:checked ~ .line2 {
+.hamburger.open .line2 {
   opacity: 0;
   transform: scaleX(0);
 }
 
-#hamburger-input:checked ~ .line3 {
+.hamburger.open .line3 {
   width: 80%;
   transform: translateY(-6px);
 }
@@ -227,9 +227,29 @@ button:focus-visible {
   white-space: normal;
 }
 
-/* Email obfuscation — reverses text for bots, aria-label for screen readers */
-.obfuscate {
-  direction: rtl;
-  unicode-bidi: bidi-override;
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html.scroll-smooth {
+    scroll-behavior: auto;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-bounce,
+  .animate-pulse {
+    animation: none;
+  }
+
+  #navbar,
+  #mobile-menu,
+  #back-to-top,
+  .preview-tooltip,
+  .hamburger .line {
+    transition: none;
+  }
 }
 
