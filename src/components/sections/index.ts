@@ -1,0 +1,7 @@
+export { default as Hero } from './Hero'
+export { default as SelectedWork } from './SelectedWork'
+export { default as About } from './About'
+export { default as Journey } from './Journey'
+export { default as RouteIllustration } from './RouteIllustration'
+export { default as Currently } from './Currently'
+export { default as Contact } from './Contact'

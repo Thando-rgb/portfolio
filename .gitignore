@@ -1,2 +1,11 @@
-.vercel
-node_modules
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.local
+.vercel/
+coverage/
+test-output.txt
+.DS_Store
+npm-debug.log*
