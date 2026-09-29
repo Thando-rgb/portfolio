@@ -34,10 +34,12 @@ Regenerate image assets with `npm run generate:assets` (social preview card, fav
 
 ## Deploy
 
-The repository ships with a `https://REPLACE-ME.vercel.app` placeholder for the canonical URL, Open Graph tags, JSON-LD, `robots.txt`, and `sitemap.xml`. After the first Vercel deploy, set the real URL once and redeploy:
+The site is live at https://thando-portfolio-steel.vercel.app. That URL is set as the canonical URL, Open Graph tags, JSON-LD, `robots.txt`, and `sitemap.xml`. If the domain ever changes, update it in one pass and redeploy:
 
 ```sh
 npm run set:url -- https://your-app.vercel.app
 ```
 
 `vercel.json` adds security headers (CSP, nosniff, frame denial), immutable caching for hashed assets, and one-hour caching for the CV.
+
+Vercel builds the project as Vite (`npm run build` → `dist`). The GitHub integration is connected to this repository; set the project's production branch to `main` so pushes deploy automatically.
