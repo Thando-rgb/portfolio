@@ -64,6 +64,7 @@ function WebsitePreview({ isNexa }: { isNexa: boolean }) {
 export default function ProjectPreview({ kind }: { kind: PreviewKind }) {
   if (kind === 'nids') return <NetworkPreview />
   if (kind === 'poultry') return <PoultryPreview />
+<<<<<<< HEAD
   if (kind === 'data') return <DataPreview />
   return <WebsitePreview key={kind} isNexa={kind === 'nexa'} />
 }
@@ -88,3 +89,7 @@ function DataPreview() {
     </div>
   )
 }
+=======
+  return <WebsitePreview key={kind} isNexa={kind === 'nexa'} />
+}
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140

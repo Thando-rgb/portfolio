@@ -30,7 +30,11 @@ const Hero: React.FC = () => {
         </div>
         <m.div className="hero-intro" initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.45 }}>
           <h2>Thoughtful code.<br />Real-world impact.</h2>
+<<<<<<< HEAD
           <p>I build secure, data-driven digital experiences across full-stack development, cybersecurity and AI. Based in Lilongwe, Malawi.</p>
+=======
+          <p>I build secure, purposeful digital experiences that solve real problems. Based in Lilongwe, Malawi.</p>
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
           <div className="hero-cta">
             <a href="#work" className="button button-dark">Explore my work <ArrowDown aria-hidden="true" size={16} /></a>
             <a href={contact.cv} target="_blank" rel="noreferrer" download="Thando_Chipango_CV.pdf" className="cv-link">Download CV <Download aria-hidden="true" size={14} /></a>

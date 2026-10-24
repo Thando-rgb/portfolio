@@ -5,8 +5,13 @@ export const contact = {
   cv: '/resume.pdf',
 }
 
+<<<<<<< HEAD
 export type ProjectCategory = 'Web development' | 'Cybersecurity' | 'Data/AI';
 export type PreviewKind = 'nids' | 'poultry' | 'nexa' | 'portfolio' | 'data';
+=======
+export type ProjectCategory = 'Web development' | 'Cybersecurity';
+export type PreviewKind = 'nids' | 'poultry' | 'nexa' | 'portfolio';
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
 
 export interface Project {
   id: string;
@@ -28,6 +33,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+<<<<<<< HEAD
     id: 'google-local-sentiment',
     number: '01',
     title: 'Google Local Datasets - Sentiment Analysis (School Assignment)',
@@ -45,6 +51,10 @@ export const projects: Project[] = [
   {
     id: 'network-intrusion-detection',
     number: '02',
+=======
+    id: 'network-intrusion-detection',
+    number: '01',
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
     title: 'Network Intrusion Detection',
     category: 'Cybersecurity',
     discipline: 'CYBERSECURITY / PYTHON',
@@ -60,7 +70,11 @@ export const projects: Project[] = [
   },
   {
     id: 'poultry-management',
+<<<<<<< HEAD
     number: '03',
+=======
+    number: '02',
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
     title: 'Poultry Management System',
     category: 'Web development',
     discipline: 'FULL-STACK / AGRICULTURE',
@@ -75,7 +89,11 @@ export const projects: Project[] = [
   },
   {
     id: 'nexacode',
+<<<<<<< HEAD
     number: '04',
+=======
+    number: '03',
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
     title: 'NexaCode',
     category: 'Web development',
     discipline: 'WEB DEVELOPMENT / BUSINESS',
@@ -91,12 +109,20 @@ export const projects: Project[] = [
   },
   {
     id: 'personal-portfolio',
+<<<<<<< HEAD
     number: '05',
+=======
+    number: '04',
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
     title: 'Personal Portfolio',
     category: 'Web development',
     discipline: 'DESIGN / DEVELOPMENT',
     year: '2025',
+<<<<<<< HEAD
     preview: 'nexa',
+=======
+    preview: 'portfolio',
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
     description: 'A home for my work and the story behind it. An exploration of thoughtful, lightweight web design.',
     stack: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
     challenge: 'Build a focused, accessible place to share my projects, technical skills, and growing professional experience without relying on a JavaScript framework.',
@@ -122,11 +148,18 @@ export const experience: JourneyItem[] = [
   {
     id: 'nexa-role',
     period: '2026',
+<<<<<<< HEAD
     title: 'Co-founder, Chief Strategy Officer & Web Developer',
     organisation: 'NexaCode Systems',
     type: 'DEVELOPMENT',
     details: [
       'Lead company strategy and documentation for a six-person freelance team offering web development, mobile app development and cybersecurity services.',
+=======
+    title: 'Web Developer',
+    organisation: 'NexaCode',
+    type: 'DEVELOPMENT',
+    details: [
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
       'Designed and built the company\'s primary marketing platform with Next.js, Tailwind CSS, and JavaScript, deploying to Vercel.',
       'Resolved a critical CSP nonce mismatch causing sitewide hydration failures and introduced Playwright end-to-end testing.',
       'Established a roadmap for SEO, WCAG accessibility, security hardening, and code modernisation.',
@@ -196,9 +229,17 @@ export const education: JourneyItem[] = [
 ]
 
 export const skills = [
+<<<<<<< HEAD
   { title: 'Languages', items: ['Python', 'JavaScript', 'SQL', 'PHP', 'HTML & CSS', 'Swift'] },
   { title: 'Frameworks', items: ['React & Next.js', 'Flask', 'Tailwind CSS', 'React Native & Flutter'] },
   { title: 'Data & Analytics', items: ['pandas', 'NLTK', 'scikit-learn', 'Jupyter', 'STATA', 'ODK', 'SurveyCTO', 'SQLite'] },
   { title: 'Security', items: ['Scapy', 'Kali Linux', 'Network security', 'Technical audits'] },
   { title: 'Tools & systems', items: ['Git & GitHub', 'Linux', 'Node.js', 'MongoDB', 'Networking', 'Playwright'] },
 ]
+=======
+  { title: 'Languages', items: ['Python', 'JavaScript', 'HTML & CSS', 'Swift'] },
+  { title: 'Frameworks', items: ['React & Next.js', 'Flask', 'Tailwind CSS', 'React Native & Flutter'] },
+  { title: 'Security', items: ['Scapy', 'Kali Linux', 'Network security', 'Technical audits'] },
+  { title: 'Tools & systems', items: ['Git & GitHub', 'Linux', 'Node.js', 'Networking'] },
+]
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140

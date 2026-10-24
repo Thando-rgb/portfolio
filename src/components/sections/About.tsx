@@ -15,7 +15,11 @@ const About: React.FC = () => {
           </Reveal>
           <Reveal className="about-copy" delay={0.1}>
             <p>I'm Thando, an IT student and developer from Lilongwe, Malawi. I care about technology that does something useful, not just something impressive.</p>
+<<<<<<< HEAD
             <p>My work sits at the intersection of full-stack development, data analysis, and cybersecurity. I've cleaned and analysed over 66,000 records in Python and SQL, built a network intrusion detection system, and helped local farmers manage their flocks through a pilot web platform.</p>
+=======
+            <p>My work sits at the intersection of software engineering, cybersecurity, and real-world problem solving. From detecting network threats to helping local farmers manage their flocks, I learn by getting my hands dirty.</p>
+>>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
             <p>Currently studying Computing with Business Management at NACIT, and always making room for the next good challenge.</p>
           </Reveal>
         </div>
