@@ -1,0 +1,12 @@
+{
+  "name": "Thando Chipango Portfolio",
+  "short_name": "Thando Chipango",
+  "icons": [
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#f5f4ef",
+  "background_color": "#f5f4ef",
+  "start_url": "/",
+  "display": "browser"
+}
