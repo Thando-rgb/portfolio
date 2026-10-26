@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { Activity, ArrowUpRight, Bell, ChartNoAxesCombined, CircleHelp, Egg, House, LayoutDashboard, Leaf, Package, Settings, ShieldCheck, SlidersHorizontal, Users } from 'lucide-react'
+import { Activity, ArrowUpRight, LayoutDashboard, Settings, ShieldCheck, SlidersHorizontal } from 'lucide-react'
 import type { PreviewKind } from '../data'
 
 function NetworkPreview() {
@@ -29,20 +29,9 @@ function NetworkPreview() {
 }
 
 function PoultryPreview() {
-  const bars = [43, 62, 48, 75, 60, 82, 70, 88, 77, 93, 84, 96]
   return (
     <div className="project-art poultry-art" aria-hidden="true">
-      <div className="poultry-window preview-window">
-        <div className="preview-browser light-browser"><i /><i /><i /><span>poultry / farm overview</span></div>
-        <div className="poultry-shell">
-          <aside className="poultry-sidebar"><div className="poultry-brand"><Leaf aria-hidden="true" size={17} /> poultry<span>.</span></div><span className="farm-workspace">MY WORKSPACE</span><div className="farm-nav is-active"><House aria-hidden="true" />Overview</div><div className="farm-nav"><Egg aria-hidden="true" />My flock</div><div className="farm-nav"><Package aria-hidden="true" />Feed & inventory</div><div className="farm-nav"><ChartNoAxesCombined aria-hidden="true" />Reports</div><div className="farm-nav"><Users aria-hidden="true" />Farm team</div><div className="farm-nav sidebar-bottom"><CircleHelp aria-hidden="true" />Help & support</div></aside>
-          <div className="poultry-main"><div className="farm-topbar"><span>Farm overview</span><div><Bell aria-hidden="true" size={11} /><span className="farmer-avatar">TC</span></div></div><div className="farm-heading"><div><span className="preview-eyebrow">A LITTLE CARE. A LOT OF GROWTH.</span><h4>A good day on the farm.</h4><p>Here's how your flock is doing today.</p></div><span className="farm-add">+ Add record</span></div>
-            <div className="farm-stats"><div><span>Total birds<Egg aria-hidden="true" /></span><strong>1,240</strong><small>Across 3 flocks</small></div><div><span>Eggs collected<Leaf aria-hidden="true" /></span><strong>846</strong><small className="farm-positive">+8.2% this week</small></div><div><span>Flock health<Activity aria-hidden="true" /></span><strong>98.4<em>%</em></strong><small>Healthy & thriving</small></div></div>
-            <div className="farm-production"><div className="chart-caption"><span>Egg production</span><small>This month <span className="select-caret" /></small></div><div className="production-chart"><div className="production-labels"><span>900</span><span>600</span><span>300</span></div><div className="production-bars">{bars.map((bar, i) => <i key={i} style={{ height: `${bar}%` }} />)}</div></div><div className="chart-axis"><span>01 JUL</span><span>07 JUL</span><span>14 JUL</span><span>21 JUL</span><span>28 JUL</span></div></div>
-            <div className="farm-bottom"><span><i /> Your farm is looking healthy.</span><span>View flock details <ArrowUpRight aria-hidden="true" size={10} /></span></div>
-          </div>
-        </div>
-      </div>
+      <img src="/images/poultry_management_system.png" alt="Poultry Management System" loading="lazy" />
       <span className="art-caption">GROWING SOMETHING THAT MATTERS.</span>
     </div>
   )
@@ -54,25 +43,18 @@ function WebsitePreview({ isNexa }: { isNexa: boolean }) {
     <div className={`project-art website-art ${isNexa ? 'nexa-art' : 'portfolio-art'}`} aria-hidden="true">
       <div className="website-window preview-window">
         <div className={`preview-browser ${isNexa ? 'light-browser' : ''}`}><i /><i /><i /><span>{isNexa ? 'nexacode / built for what\'s next' : 'thando.dev / the first chapter'}</span></div>
-        {imageFailed ? <div className="website-preview-fallback"><span className="mono">{isNexa ? 'DIGITAL SOLUTIONS, HUMAN IMPACT.' : 'IT STUDENT & DEVELOPER'}</span><strong>{isNexa ? 'NexaCode' : 'Thando'}<br />{isNexa ? 'Systems.' : 'Chipango.'}</strong><span>{isNexa ? 'Building the next chapter of your business.' : 'Building secure, purposeful digital experiences.'}</span></div> : <img src={`/images/${isNexa ? 'nexa_code_systems_website_image' : 'personal_portfolio_website_screenshot'}.webp`} alt="" loading="lazy" width="1440" height="506" onError={() => setImageFailed(true)} />}
+        {imageFailed ? <div className="website-preview-fallback"><span className="mono">{isNexa ? 'DIGITAL SOLUTIONS, HUMAN IMPACT.' : 'IT STUDENT & DEVELOPER'}</span><strong>{isNexa ? 'NexaCode' : 'Thando'}<br />{isNexa ? 'Systems.' : 'Chipango.'}</strong><span>{isNexa ? 'Building the next chapter of your business.' : 'Building secure, purposeful digital experiences.'}</span></div> : <img src={`/images/${isNexa ? 'nexa_code_systems_website_image' : 'portfolio'}.png`} alt="" loading="lazy" width="1440" height="506" onError={() => setImageFailed(true)} />}
       </div>
       <span className="art-caption">{isNexa ? 'A STRONGER DIGITAL FOUNDATION.' : 'EVERY BUILDER NEEDS A HOME.'}</span>
     </div>
   )
 }
-
 export default function ProjectPreview({ kind }: { kind: PreviewKind }) {
   if (kind === 'nids') return <NetworkPreview />
   if (kind === 'poultry') return <PoultryPreview />
-<<<<<<< HEAD
   if (kind === 'data') return <DataPreview />
   return <WebsitePreview key={kind} isNexa={kind === 'nexa'} />
 }
-
-
-
-
-
 
 function DataPreview() {
   return (
@@ -89,7 +71,3 @@ function DataPreview() {
     </div>
   )
 }
-=======
-  return <WebsitePreview key={kind} isNexa={kind === 'nexa'} />
-}
->>>>>>> 4897990382d38ff89019ebdf570fd2768f9f7140
