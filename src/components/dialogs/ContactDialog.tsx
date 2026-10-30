@@ -43,7 +43,7 @@ const ContactDialog: React.FC<{ onClose: () => void; subject: string }> = ({ onC
     const body = `Hi Thando,\n\n${form.message.trim()}\n\nBest,\n${form.name.trim()}\n${form.email.trim()}`
     const url = `mailto:${contact.email}?subject=${encodeURIComponent(form.subject.trim())}&body=${encodeURIComponent(body)}`
     setDraft({ url, body: `To: ${contact.email}\nSubject: ${form.subject.trim()}\n\n${body}` })
-    window.location.href = url
+    window.open(url, '_blank')
   }
 
   return (

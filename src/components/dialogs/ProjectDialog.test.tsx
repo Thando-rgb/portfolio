@@ -5,7 +5,7 @@ import ProjectDialog from './ProjectDialog'
 
 function renderDialog(overrides: Partial<Parameters<typeof ProjectDialog>[0]> = {}) {
   const props = {
-    project: projects[0],
+    project: projects[1],
     onClose: vi.fn(),
     onChange: vi.fn(),
     onContact: vi.fn(),
@@ -20,7 +20,7 @@ describe('ProjectDialog', () => {
     renderDialog()
     expect(screen.getByRole('dialog')).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 2, name: /network intrusion detection/i })).toBeInTheDocument()
-    expect(screen.getByText('01 / 04')).toBeInTheDocument()
+    expect(screen.getByText('02 / 05')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'The challenge' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'The approach' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'The outcome' })).toBeInTheDocument()
@@ -39,10 +39,10 @@ describe('ProjectDialog', () => {
   it('paginates forwards with wrap-around and backwards with wrap-around', () => {
     const { onChange } = renderDialog()
     fireEvent.click(screen.getByRole('button', { name: /next project/i }))
-    expect(onChange).toHaveBeenCalledWith(projects[1])
+    expect(onChange).toHaveBeenCalledWith(projects[2])
 
     fireEvent.click(screen.getByRole('button', { name: /previous project/i }))
-    expect(onChange).toHaveBeenCalledWith(projects[3])
+    expect(onChange).toHaveBeenCalledWith(projects[0])
   })
 
   it('focuses the case-study heading when opened', () => {
@@ -81,7 +81,7 @@ describe('ProjectDialog', () => {
   it('renders the illustration disclaimer for interface-illustration projects only', () => {
     const { rerender } = renderDialog()
     expect(screen.getByText(/interface illustration with sample data/i)).toBeInTheDocument()
-    rerender(<ProjectDialog project={projects[2]} onClose={vi.fn()} onChange={vi.fn()} onContact={vi.fn()} />)
+    rerender(<ProjectDialog project={projects[0]} onClose={vi.fn()} onChange={vi.fn()} onContact={vi.fn()} />)
     expect(screen.queryByText(/interface illustration with sample data/i)).not.toBeInTheDocument()
   })
 })

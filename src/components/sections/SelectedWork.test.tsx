@@ -8,7 +8,7 @@ describe('SelectedWork', () => {
     expect(screen.getByRole('button', { name: /all work/i })).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('heading', { level: 3, name: 'Network Intrusion Detection' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 3, name: 'NexaCode' })).toBeInTheDocument()
-    expect(screen.getByText(/showing 4\s+projects/i)).toBeInTheDocument()
+    expect(screen.getByText(/showing 5\s+projects/i)).toBeInTheDocument()
   })
 
   it('filters projects when a category button is pressed', async () => {
@@ -30,7 +30,7 @@ describe('SelectedWork', () => {
     fireEvent.click(screen.getByRole('button', { name: /cybersecurity/i }))
     fireEvent.click(screen.getByRole('button', { name: /all work/i }))
 
-    expect(screen.getByText(/showing 4\s+projects/i)).toBeInTheDocument()
+    expect(screen.getByText(/showing 5\s+projects/i)).toBeInTheDocument()
     expect(await screen.findByRole('heading', { level: 3, name: 'NexaCode' })).toBeInTheDocument()
   })
 
@@ -46,7 +46,7 @@ describe('SelectedWork', () => {
 
   it('renders per-category counts in the filter badges', () => {
     render(<SelectedWork onProject={vi.fn()} />)
-    expect(screen.getByRole('button', { name: 'All work 04' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'All work 05' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Web development 03' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Cybersecurity 01' })).toBeInTheDocument()
   })

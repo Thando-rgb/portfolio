@@ -19,9 +19,9 @@ describe('Footer', () => {
   it('renders the Privacy & Legal column with the three legal links', () => {
     render(<Footer />)
     expect(screen.getByRole('heading', { name: /privacy & legal/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /privacy policy/i })).toHaveAttribute('href', '/privacy-policy')
-    expect(screen.getByRole('link', { name: /terms of use/i })).toHaveAttribute('href', '/terms-of-use')
-    expect(screen.getByRole('link', { name: /cookie policy/i })).toHaveAttribute('href', '/cookie-policy')
+    expect(screen.getByRole('link', { name: /privacy policy/i })).toHaveAttribute('href', '/privacy-policy.html')
+    expect(screen.getByRole('link', { name: /terms of use/i })).toHaveAttribute('href', '/terms-of-use.html')
+    expect(screen.getByRole('link', { name: /cookie policy/i })).toHaveAttribute('href', '/cookie-policy.html')
   })
 
   it('renders the Keep in touch column with social and contact links', () => {

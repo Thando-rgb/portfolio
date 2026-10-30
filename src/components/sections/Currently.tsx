@@ -4,7 +4,7 @@ import { Reveal, SectionLabel } from '../shared'
 
 const Currently: React.FC<{ onContact: () => void }> = ({ onContact }) => {
   return (
-    <section className="currently-section" aria-labelledby="currently-title">
+    <section className="currently-section" id="currently" data-nav-section aria-labelledby="currently-title">
       <div className="container currently-layout">
         <Reveal className="currently-copy">
           <SectionLabel number="04" light>ON THE WORKBENCH</SectionLabel>

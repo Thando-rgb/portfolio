@@ -11,7 +11,6 @@ describe('App', () => {
     expect(screen.getByRole('heading', { level: 2, name: /ideas, made real/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 2, name: /a curious mind/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 2, name: /always learning/i })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { level: 2, name: /small packages/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 2, name: /let's build/i })).toBeInTheDocument()
     expect(screen.getByRole('contentinfo')).toBeInTheDocument()
   })

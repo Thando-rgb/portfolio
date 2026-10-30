@@ -25,9 +25,9 @@ const Footer: React.FC = () => {
         <div className="footer-col footer-privacy">
           <h4 className="footer-heading">Privacy &amp; Legal</h4>
           <ul className="footer-links">
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-            <li><a href="/terms-of-use">Terms of Use</a></li>
-            <li><a href="/cookie-policy">Cookie Policy</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/terms-of-use.html">Terms of Use</a></li>
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
           </ul>
         </div>
 
