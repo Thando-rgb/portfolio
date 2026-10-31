@@ -31,7 +31,10 @@ function NetworkPreview() {
 function PoultryPreview() {
   return (
     <div className="project-art poultry-art" aria-hidden="true">
-      <img src="/images/poultry_management_system.png" alt="Poultry Management System" loading="lazy" />
+      <picture>
+        <source srcSet="/images/poultry_management_system.webp" type="image/webp" />
+        <img src="/images/poultry_management_system.png" alt="Poultry Management System" loading="lazy" decoding="async" width="1905" height="900" />
+      </picture>
       <span className="art-caption">GROWING SOMETHING THAT MATTERS.</span>
     </div>
   )
@@ -43,7 +46,14 @@ function WebsitePreview({ isNexa }: { isNexa: boolean }) {
     <div className={`project-art website-art ${isNexa ? 'nexa-art' : 'portfolio-art'}`} aria-hidden="true">
       <div className="website-window preview-window">
         <div className={`preview-browser ${isNexa ? 'light-browser' : ''}`}><i /><i /><i /><span>{isNexa ? 'nexacode / built for what\'s next' : 'thando.dev / the first chapter'}</span></div>
-        {imageFailed ? <div className="website-preview-fallback"><span className="mono">{isNexa ? 'DIGITAL SOLUTIONS, HUMAN IMPACT.' : 'IT STUDENT & DEVELOPER'}</span><strong>{isNexa ? 'NexaCode' : 'Thando'}<br />{isNexa ? 'Systems.' : 'Chipango.'}</strong><span>{isNexa ? 'Building the next chapter of your business.' : 'Building secure, purposeful digital experiences.'}</span></div> : <img src={`/images/${isNexa ? 'nexa_code_systems_website_image' : 'portfolio'}.png`} alt="" loading="lazy" width="1440" height="506" onError={() => setImageFailed(true)} />}
+        {imageFailed ? (
+          <div className="website-preview-fallback"><span className="mono">{isNexa ? 'DIGITAL SOLUTIONS, HUMAN IMPACT.' : 'IT STUDENT & DEVELOPER'}</span><strong>{isNexa ? 'NexaCode' : 'Thando'}<br />{isNexa ? 'Systems.' : 'Chipango.'}</strong><span>{isNexa ? 'Building the next chapter of your business.' : 'Building secure, purposeful digital experiences.'}</span></div>
+        ) : (
+          <picture>
+            {!isNexa && <source srcSet="/images/portfolio.webp" type="image/webp" />}
+            <img src={`/images/${isNexa ? 'nexa_code_systems_website_image' : 'portfolio'}.png`} alt="" loading="lazy" decoding="async" width={1440} height={506} onError={() => setImageFailed(true)} />
+          </picture>
+        )}
       </div>
       <span className="art-caption">{isNexa ? 'A STRONGER DIGITAL FOUNDATION.' : 'EVERY BUILDER NEEDS A HOME.'}</span>
     </div>
