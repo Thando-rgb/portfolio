@@ -4,6 +4,7 @@ import { Footer, Header } from './components/layout'
 import { About, Contact, Currently, Hero, Journey, SelectedWork } from './components/sections'
 import { ContactDialog, ProjectDialog } from './components/dialogs'
 import type { Project } from './data'
+import { Analytics } from '@vercel/analytics/react'
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -30,6 +31,7 @@ const App: React.FC = () => {
         <Contact onContact={() => openContact()} />
       </main>
       <Footer />
+      <Analytics />
       {selectedProject && (
         <ProjectDialog
           project={selectedProject}

@@ -56,11 +56,11 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ project, onClose, onChang
         </aside>
       </div>
       <div className="project-dialog-pagination">
-        <button onClick={() => onChange(projects[(index - 1 + projects.length) % projects.length])}>
+        <button aria-label="Previous project" onClick={() => onChange(projects[(index - 1 + projects.length) % projects.length])}>
           <ArrowLeft aria-hidden="true" size={17} />Previous project
         </button>
         <span className="mono">{project.number} / {String(projects.length).padStart(2, '0')}</span>
-        <button onClick={() => onChange(projects[(index + 1) % projects.length])}>
+        <button aria-label="Next project" onClick={() => onChange(projects[(index + 1) % projects.length])}>
           Next project<ArrowRight aria-hidden="true" size={17} />
         </button>
       </div>
