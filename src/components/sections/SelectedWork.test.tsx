@@ -49,5 +49,6 @@ describe('SelectedWork', () => {
     expect(screen.getByRole('button', { name: 'All work 05' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Web development 03' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Cybersecurity 01' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Data Science 01' })).toBeInTheDocument()
   })
 })

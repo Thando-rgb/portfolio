@@ -7,8 +7,14 @@ import { Reveal, SectionLabel } from '../shared'
 
 const SelectedWork: React.FC<{ onProject: (project: Project) => void }> = ({ onProject }) => {
   const [filter, setFilter] = useState<'All work' | ProjectCategory>('All work')
-  const filters: ('All work' | ProjectCategory)[] = ['All work', 'Web development', 'Cybersecurity']
-  const visibleProjects = filter === 'All work' ? projects : projects.filter((project) => project.category === filter)
+const filters: { label: string; category: ProjectCategory | 'All work' }[] = [
+  { label: 'All work', category: 'All work' },
+  { label: 'Web development', category: 'Web development' },
+  { label: 'Cybersecurity', category: 'Cybersecurity' },
+  { label: 'Data Science', category: 'Data/AI' },
+]
+
+const visibleProjects = filter === 'All work' ? projects : projects.filter((project) => project.category === filter)
 
   return (
     <section className="work-section section-space" id="work" data-nav-section aria-labelledby="work-title">
@@ -22,11 +28,14 @@ const SelectedWork: React.FC<{ onProject: (project: Project) => void }> = ({ onP
         </Reveal>
         <div className="work-toolbar">
           <div className="work-filters" aria-label="Filter projects">
-            {filters.map((item) => (
-              <button key={item} onClick={() => setFilter(item)} aria-pressed={filter === item} className={`filter-button ${filter === item ? 'is-active' : ''}`}>
-                {item} <span className="mono">{String(item === 'All work' ? projects.length : projects.filter((project) => project.category === item).length).padStart(2, '0')}</span>
+          {filters.map((item) => {
+            const count = item.category === 'All work' ? projects.length : projects.filter((project) => project.category === item.category).length
+            return (
+              <button key={item.label} onClick={() => setFilter(item.category)} aria-pressed={filter === item.category} className={`filter-button ${filter === item.category ? 'is-active' : ''}`}>
+                {item.label} <span className="mono">{String(count).padStart(2, '0')}</span>
               </button>
-            ))}
+            )
+          })}
           </div>
           <a href={contact.github} target="_blank" rel="noreferrer" className="text-link github-work">More on GitHub <ArrowUpRight aria-hidden="true" size={15} /></a>
         </div>
