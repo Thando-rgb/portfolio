@@ -37,7 +37,44 @@ const Hero: React.FC = () => {
           </div>
         </m.div>
       </div>
-      <a href="#work" className="hero-scroll" aria-label="Scroll to selected work"><ArrowDown aria-hidden="true" size={20} /></a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Thando Chipango',
+              url: 'https://thando-portfolio-steel.vercel.app/',
+              image: 'https://thando-portfolio-steel.vercel.app/images/og-card.jpg',
+              jobTitle: 'IT Student & Full-Stack Developer',
+              worksFor: {
+                '@type': 'Organization',
+                name: 'NexaCode Systems',
+                url: 'https://nexa-web-swart.vercel.app/',
+              },
+              location: {
+                '@type': 'Place',
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: 'Lilongwe',
+                  addressCountry: 'MW',
+                },
+              },
+              email: 'thandochipango316@gmail.com',
+              sameAs: [
+                'https://github.com/Thando-rgb',
+                'https://www.linkedin.com/in/thando-chipango',
+              ],
+              alumniOf: {
+                '@type': 'CollegeOrUniversity',
+                name: 'National College of Information Technology (NACIT)',
+              },
+              description:
+                'IT student and developer from Lilongwe, Malawi. Full-stack development, data analysis, cybersecurity, and business principles.',
+            }),
+          }}
+        />
+        <a href="#work" className="hero-scroll" aria-label="Scroll to selected work"><ArrowDown aria-hidden="true" size={20} /></a>
     </section>
   )
 }
