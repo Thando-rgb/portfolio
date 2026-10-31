@@ -1,5 +1,6 @@
 export const contact = {
   email: 'thandochipango316@gmail.com',
+  phone: '+265 992 714 117',
   github: 'https://github.com/Thando-rgb',
   linkedin: 'https://www.linkedin.com/in/thando-chipango',
   cv: '/resume.pdf',
@@ -104,7 +105,7 @@ export const projects: Project[] = [
     outcome: 'Shipped a responsive personal website on Vercel, bringing project work, experience, and direct contact avenues together in one place. The original version remains available to explore.',
     features: ['Framework-free, modular implementation', 'Responsive navigation and smooth scrolling', 'Live iframe project previews on hover', 'Accessible content structure and direct contact links'],
     github: 'https://github.com/Thando-rgb/portfolio',
-    live: 'https://thando-portfolio-steel.vercel.app/index.html',
+    live: 'https://thando-portfolio-steel.vercel.app/',
   },
 ]
 
@@ -127,8 +128,8 @@ export const experience: JourneyItem[] = [
     type: 'DEVELOPMENT',
     details: [
       'Lead company strategy and documentation for a six-person freelance team offering web development, mobile app development and cybersecurity services.',
-      'Designed and built the company\'s primary marketing platform with Next.js, Tailwind CSS, and JavaScript, deploying to Vercel.',
-      'Resolved a critical CSP nonce mismatch causing sitewide hydration failures and introduced Playwright end-to-end testing.',
+      'Designed and built the company\'s primary marketing platform with Next.js 14, Tailwind CSS, and JavaScript, architected for performance and SEO, deployed to Vercel.',
+      'Resolved a critical CSP nonce mismatch causing sitewide hydration failures and introduced Playwright end-to-end testing with an automated validation pipeline that runs before production deploys.',
       'Established a roadmap for SEO, WCAG accessibility, security hardening, and code modernisation.',
     ],
     link: 'https://nexa-web-swart.vercel.app/',
@@ -140,9 +141,10 @@ export const experience: JourneyItem[] = [
     organisation: 'TaskMate Malawi',
     type: 'INDEPENDENT PROJECT',
     details: [
-      'Audited a functional MVP across user experience, technical architecture, cybersecurity, and conversion metrics.',
-      'Identified six priority barriers, including pricing transparency, payment security flows, and unclear calls to action.',
-      'Created an actionable four-phase roadmap for mobile responsiveness, conversion, structured data, and technical SEO.',
+      'Audited a live MVP (taskmate-malawi-hub.lovable.app) across user experience, technical architecture, and conversion metrics.',
+      'Identified six high-priority barriers, including pricing ambiguity and friction in payment security flows, and proposed alternative UI solutions to build user trust.',
+      'Developed a four-phase implementation roadmap to improve mobile responsiveness (target 60-70% mobile traffic) and conversion rates.',
+      'Recommended technical SEO improvements: schema.org structured data, heading hierarchies, and XML sitemaps.',
     ],
   },
   {
@@ -153,8 +155,8 @@ export const experience: JourneyItem[] = [
     type: 'VOLUNTEERING',
     details: [
       'Supported the five-day Theatre Renaissance Cabaret International Festival in Lilongwe, with participants from 11 countries.',
-      'Collected and curated media from television stations and contributors for timely, multi-platform social distribution.',
-      'Collaborated with an international team and coordinated accreditation, equipment, and on-site logistics.',
+      'Collected and curated media content (footage and data) from TV stations and individual contributors for timely, multi-platform social distribution.',
+      'Collaborated with an international team during live operations, coordinating accreditation, equipment, and laptop-based on-site logistics.',
     ],
   },
 ]
@@ -162,13 +164,13 @@ export const experience: JourneyItem[] = [
 export const education: JourneyItem[] = [
   {
     id: 'level-five',
-    period: 'IN PROGRESS',
+    period: 'EXPECTED 2027',
     title: 'Level 5 Diploma',
     organisation: 'Computing with Business Management',
     type: 'NACIT',
     details: [
       'Currently studying at the National College of Information Technology in Lilongwe, Malawi.',
-      'Coursework: Backend Web Development, Big Data Analysis and Data Science, and Mobile App Development.',
+      'Coursework: Backend Web Development, Big Data Analysis and Data Science, Mobile App Development, and Principles of Business Operations.',
     ],
   },
   {
@@ -196,9 +198,11 @@ export const education: JourneyItem[] = [
 ]
 
 export const skills = [
-  { title: 'Languages', items: ['Python', 'JavaScript', 'SQL', 'PHP', 'HTML & CSS', 'Swift'] },
-  { title: 'Frameworks', items: ['React & Next.js', 'Flask', 'Tailwind CSS', 'React Native & Flutter'] },
+  { title: 'Languages', items: ['Python', 'JavaScript', 'HTML & CSS', 'SQL', 'PHP'] },
+  { title: 'Frameworks', items: ['React', 'React Native', 'Next.js', 'Flask', 'Tailwind CSS'] },
   { title: 'Data & Analytics', items: ['pandas', 'NLTK', 'scikit-learn', 'Jupyter', 'STATA', 'ODK', 'SurveyCTO', 'SQLite'] },
-  { title: 'Security', items: ['Scapy', 'Kali Linux', 'Network security', 'Technical audits'] },
-  { title: 'Tools & systems', items: ['Git & GitHub', 'Linux', 'Node.js', 'MongoDB', 'Networking', 'Playwright'] },
+  { title: 'Security & Networking', items: ['Scapy', 'Kali Linux', 'Network security', 'Networking', 'Technical audits'] },
+  { title: 'Tools', items: ['Git', 'Linux', 'Node.js', 'MongoDB', 'VS Code', 'Playwright'] },
+  { title: 'Mobile Development', items: ['Flutter', 'Swift'] },
+  { title: 'Professional Development', items: ['Pursuing certifications in Networking, Cloud Computing and Cybersecurity through Nzeru Hub'] },
 ]

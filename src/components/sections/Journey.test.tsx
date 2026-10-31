@@ -47,7 +47,7 @@ describe('Journey', () => {
 
     fireEvent.click(second)
     expect(second).toHaveAttribute('aria-expanded', 'true')
-    expect(await screen.findByText(/audited a functional mvp/i)).toBeInTheDocument()
+    expect(await screen.findByText(/audited a live mvp/i)).toBeInTheDocument()
 
     expect(first).toHaveAttribute('aria-expanded', 'false')
     await waitFor(() => {

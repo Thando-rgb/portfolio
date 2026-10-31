@@ -23,6 +23,9 @@ const Contact: React.FC<{ onContact: () => void }> = ({ onContact }) => {
               </div>
               <span className="copy-feedback" role="status">{copyState === 'copied' ? 'Email address copied.' : copyState === 'error' ? 'Select the address above to copy it.' : '\u00a0'}</span>
             </div>
+            <div className="phone-line">
+              <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+            </div>
             <div className="contact-aside">
               <p>Have an interesting problem, a project in mind, or an opportunity to share? I'd love to hear from you.</p>
               <button className="button button-dark" onClick={onContact}>Start a conversation <ArrowUpRight aria-hidden="true" size={17} /></button>
