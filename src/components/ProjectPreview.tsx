@@ -50,8 +50,9 @@ function WebsitePreview({ isNexa }: { isNexa: boolean }) {
           <div className="website-preview-fallback"><span className="mono">{isNexa ? 'DIGITAL SOLUTIONS, HUMAN IMPACT.' : 'IT STUDENT & DEVELOPER'}</span><strong>{isNexa ? 'NexaCode' : 'Thando'}<br />{isNexa ? 'Systems.' : 'Chipango.'}</strong><span>{isNexa ? 'Building the next chapter of your business.' : 'Building secure, purposeful digital experiences.'}</span></div>
         ) : (
           <picture>
-            {!isNexa && <source srcSet="/images/portfolio.webp" type="image/webp" />}
-            <img src={`/images/${isNexa ? 'nexa_code_systems_website_image' : 'portfolio'}.png`} alt="" loading="lazy" decoding="async" width={1440} height={506} onError={() => setImageFailed(true)} />
+        {!isNexa && <source srcSet="/images/portfolio.webp" type="image/webp" />}
+        {isNexa && <source srcSet="/images/nexacode_website.webp" type="image/webp" />}
+        <img src={`/images/${isNexa ? 'nexacode_website' : 'portfolio'}.png`} alt="" loading="lazy" decoding="async" width={1440} height={506} onError={() => setImageFailed(true)} />
           </picture>
         )}
       </div>
